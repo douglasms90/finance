@@ -1,9 +1,4 @@
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
+from app import app
 
-url = "https://www.infomoney.com.br/mercados/renda-fixa"
-html = urlopen(url)
-bs = BeautifulSoup(html, 'html')
-cdi = bs.find('li', class_='li-cdi').find('strong').get_text()[3:]
-
-print(f'CDI atual: {cdi}% a.a')
+if __name__ == "__main__":
+  app.run(host='127.0.0.1', port=5000, debug=True)
